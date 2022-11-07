@@ -1,0 +1,19 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Technologies: React/hooks, Node/express, Socket.io, MongoDB/mongoose",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chidough14/triviaApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chidough14/triviaApp/issues"
+  },
+  "homepage": "https://github.com/chidough14/triviaApp#readme"
+}
