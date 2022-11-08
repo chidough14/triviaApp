@@ -23,7 +23,7 @@ app.use(express.json());
 const scores = require('./routes/scores');
 app.use('/scores', scores);
 
-const whitelist = ['http://localhost:3000','http://localhost:5000','http://192.168.10.240:5000', 'https://triv-quiz.herokuapp.com']
+const whitelist = ['http://localhost:3000','http://localhost:5000','http://192.168.10.240:5000', 'https://triv-quiz.herokuapp.com:5000']
 const corsOptions = {
   origin: function (origin, callback) {
     console.log("** Origin of request " + origin)
