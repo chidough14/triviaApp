@@ -39,7 +39,6 @@ app.use('/scores', scores);
 // app.use(cors(corsOptions))
 
 app.use(express.static(path.join(__dirname, '..', 'client/build')));
-// Handle React routing, return all requests to React app
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname,  '..','client/build', 'index.html'));
 });
@@ -53,14 +52,14 @@ app.get('*', function(req, res) {
 //     });
 // }
 
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/trivia', {
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
-})
-.catch((err) => {
-    console.log(err);
-});
+// const mongoose = require('mongoose');
+// mongoose.connect('mongodb://localhost:27017/trivia', {
+//     useNewUrlParser: true, 
+//     useUnifiedTopology: true
+// })
+// .catch((err) => {
+//     console.log(err);
+// });
 
 // SOCKET
 const uuidv1 = require('uuid/v1');
