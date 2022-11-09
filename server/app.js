@@ -4,7 +4,7 @@ require('dotenv').config()
 const socketio = require('socket.io');
 const http = require('http');
 const PORT = process.env.PORT || 5000;
-//const cors = require('cors');
+const cors = require('cors');
 const path = require('path');
 
 
@@ -23,7 +23,7 @@ app.use(express.json());
 const scores = require('./routes/scores');
 app.use('/scores', scores);
 
-const whitelist = ['http://localhost:3000','http://localhost:5000','http://192.168.10.240:5000', 'https://triv-quiz.herokuapp.com:5000']
+const whitelist = ['http://localhost:3000','http://localhost:5000']
 const corsOptions = {
   origin: function (origin, callback) {
     console.log("** Origin of request " + origin)
@@ -52,14 +52,14 @@ app.get('*', function(req, res) {
 //     });
 // }
 
-// const mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost:27017/trivia', {
-//     useNewUrlParser: true, 
-//     useUnifiedTopology: true
-// })
-// .catch((err) => {
-//     console.log(err);
-// });
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/trivia', {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+})
+.catch((err) => {
+    console.log(err);
+});
 
 // SOCKET
 const uuidv1 = require('uuid/v1');
