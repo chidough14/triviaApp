@@ -195,10 +195,10 @@ io.on('connect', (socket) => {
             } else {
                 // delete room if gamemaster left
                 const room = rooms[socket.roomName];
-                console.log(room.sockets[0].username, 'has left');
+                console.log(room.sockets[0].username, 'has left33',socket.roomName);
                 socket.broadcast.to(socket.roomId).emit('message', { text: `The gamemaster ${room.sockets[0].username} has left the game! Please leave the room.` });
                 delete rooms[room.name];
-                open = open.filter((a)=> a !== socket.roomName)  //update open rooms
+                open = open.filter((a)=> a.roomName !== socket.roomName)  //update open rooms
             };
         };
     });
