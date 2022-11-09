@@ -9,7 +9,7 @@ import { Container } from 'react-bootstrap';
 let socket;
 
 const GamePlayer = ({ location }) => {
-   // const server = 'localhost:5000';
+    //const server = 'localhost:5000';
     // const server = 'http://192.168.10.240:5000'
     const server = ''
     const [joinRoomName, setJoinRoomName] = useState('');

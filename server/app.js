@@ -38,19 +38,19 @@ const corsOptions = {
 }
 app.use(cors(corsOptions))
 
-app.use(express.static(path.join(__dirname, '..', 'client/build')));
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname,  '..','client/build', 'index.html'));
-});
+// app.use(express.static(path.join(__dirname, '..', 'client/build')));
+// app.get('*', function(req, res) {
+//     res.sendFile(path.join(__dirname,  '..','client/build', 'index.html'));
+// });
 
-// if (process.env.NODE_ENV === 'production') {
-//     // Serve any static files
-//     app.use(express.static(path.join(__dirname, 'client/build')));
-//     // Handle React routing, return all requests to React app
-//     app.get('*', function(req, res) {
-//         res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-//     });
-// }
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'client/build')));
+    // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+        res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+    });
+}
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/trivia', {
@@ -86,7 +86,7 @@ io.on('connect', (socket) => {
         
         joinRoom(socket, room, masterName);
 
-        open.push(roomName)
+        open.push({roomName, masterName})
     });
 
     setInterval(function(){

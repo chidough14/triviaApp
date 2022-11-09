@@ -64,7 +64,11 @@ const JoinGame = () => {
                     <h1>Join Game</h1>
                     <Form>
                         {
-                            openRooms.length && openRooms.map((room) =>  <Button variant="secondary" onClick={() => handleShow(room)}>{room}</Button>)
+                            openRooms.length && openRooms.map((room) =>  
+                            <Button variant="secondary" onClick={() => handleShow(room.roomName)}>
+                                <p>Name: {room.roomName}</p>
+                                <p>Master: {room.masterName}</p>
+                            </Button>)
                         }
                     </Form>
                 </Col>
